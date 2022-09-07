@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Favorite Climb</title>
+    <link rel="stylesheet" href="/css">
+</head>
+<body>
+    <form id="climbSubmit">
+        <label for="fName">First name:</label><br>
+        <input type="text" id="fName" name="fName"><br>
+        <label for="lName">Last name:</label><br>
+        <input type="text" id="lName" name="lName"><br>
+        <label for="climbName">Climb name:</label><br>
+        <input type="text" id="climbName" name="climbName"><br>
+        <label for="grade">Difficulty:</label><br>
+        <select name="grade" id="grade">
+            <option value="V0">V0</option>
+            <option value="V1">V1</option>
+            <option value="V2">V2</option>
+            <option value="V3">V3</option>
+            <option value="V4">V4</option>
+            <option value="V5">V5</option>
+            <option value="V6">V6</option>
+            <option value="V7">V7</option>
+            <option value="V8">V8</option>
+            <option value="V9">V9</option>
+            <option value="V10">V10</option>
+            <option value="V11">V11</option>
+            <option value="V12">V12</option>
+            <option value="V13">V13</option>
+            <option value="V14">V14</option>
+            <option value="V15">V15</option>
+            <option value="V16">V16</option>
+        </select><br>
+        <label for="location">Location:</label><br>
+        <input type="text" id="location" name="location"><br>
+        <label for="forumImage">Picture of climb:</label><br>
+        <input type="text" id="forumImage" name="forumImage" placeholder="Image URL"><br>
+        <label for="info">Comments/Info:</label><br>
+        <input type="text" id="info" name="info"><br>
+        <label for="climbSubmit"></label><br>
+        <input type="submit" value="Submit" name="climbSubmit">
+    </form>
+    <div id="climbsContainer">
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/js"></script>
+</body>
+</html>
