@@ -55,20 +55,8 @@ module.exports = {
     submitEdits: (req, res) => {
         let {id} = req.params
         let { fName, lName, climbName, grade, location, forumImage, info } = req.body
-        // let newFavClimb = {
-        //     fName,
-        //     lName,
-        //     climbName,
-        //     grade,
-        //     location,
-        //     forumImage,
-        //     info
-        // }
-        console.log(favClimbs)
         for (let i = 0; i < favClimbs.length; i++) {
-            console.log(id, favClimbs[i].id)
             if (+id === +favClimbs[i].id) {
-                console.log('made it here')
                 favClimbs[i].fName = fName
                 favClimbs[i].lName = lName
                 favClimbs[i].climbName = climbName
@@ -78,7 +66,6 @@ module.exports = {
                 favClimbs[i].info = info
             }
         }
-        console.log(favClimbs)
         res.status(200).send(favClimbs)
     }
 }

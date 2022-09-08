@@ -1,15 +1,16 @@
 const climbSubmitBtn = document.getElementById('submitClimbBtn')
 const submitChangesBtn = document.getElementById('submitEdit')
 
-let climbObj = {
-    fName: document.getElementById('fName').value,
-    lName: document.getElementById('lName').value,
-    climbName: document.getElementById('climbName').value,
-    grade: document.getElementById('grade').value,
-    location: document.getElementById('location').value,
-    forumImage: document.getElementById('forumImage').value,
-    info: document.getElementById('info').value
-}
+// why isn't this working?
+// let climbObj = {
+//     fName: document.getElementById('fName').value,
+//     lName: document.getElementById('lName').value,
+//     climbName: document.getElementById('climbName').value,
+//     grade: document.getElementById('grade').value,
+//     location: document.getElementById('location').value,
+//     forumImage: document.getElementById('forumImage').value,
+//     info: document.getElementById('info').value
+// }
 
 function createFavClimb(e) {
     e.preventDefault()
@@ -26,7 +27,6 @@ function createFavClimb(e) {
     axios.post('/forumPost', climbObj)
     .then(res => {
         data = res.data
-        // console.log(data[0])
         printToBrowser(data)
     })
     document.getElementById('fName').value = ''
@@ -44,7 +44,6 @@ function deleteClimb(e) {
     e.preventDefault()
     document.getElementById('climbsContainer').innerHTML = ''
     let id = e.target.getAttribute('backendId')
-    // console.log(id)
     axios.delete(`/deleteClimb/${id}`)
     .then(res => {
         data = res.data
@@ -56,7 +55,6 @@ function editClimb(e) {
     e.preventDefault()
     // document.getElementById('climbsContainer').innerHTML = ''
     let id = e.target.getAttribute('backendIdToEdit')
-    // console.log(id)
     axios.get(`/editClimb/?id=${id}`)
     .then(res => {
         data = res.data
@@ -72,6 +70,7 @@ function editClimb(e) {
         document.getElementById('info').value = `${data.info}`
         document.getElementById('submitClimbBtn').hidden = true // hide submit btn
         document.getElementById('submitEdit').hidden = false // show submit changes btn
+        document.getElementById(`edit${id}`).hidden = true // hide edit button
         document.getElementById('submitEdit').setAttribute('current-id', id)
     })
 }
@@ -80,7 +79,6 @@ function submitEdits(e) {
     e.preventDefault()
     document.getElementById('climbsContainer').innerHTML = ''
     let id = e.target.getAttribute('current-id')
-    console.log(id)
     let climbObj = {
         fName: document.getElementById('fName').value,
         lName: document.getElementById('lName').value,
@@ -90,10 +88,8 @@ function submitEdits(e) {
         forumImage: document.getElementById('forumImage').value,
         info: document.getElementById('info').value
     }
-    console.log('test1')
     axios.put(`/submitEdits/${id}`, climbObj)
     .then(res => {
-        console.log('test2')
         data = res.data
         printToBrowser(data)
         document.getElementById('fName').value = ''
@@ -103,7 +99,8 @@ function submitEdits(e) {
         document.getElementById('location').value = ''
         document.getElementById('forumImage').value = ''
         document.getElementById('info').value = ''
-        console.log('test3')
+        
+        document.getElementById('climbSubmit').hidden = true // hides data entry form
     })
 }
 
