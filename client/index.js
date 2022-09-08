@@ -49,6 +49,7 @@ function deleteClimb(e) {
         data = res.data
         printToBrowser(data)
     })
+    document.getElementById('climbSubmit').hidden = false // show data entry form
 }
 
 function editClimb(e) {
@@ -107,6 +108,7 @@ function submitEdits(e) {
 function printToBrowser(data) {
     for (let i = 0; i < data.length; i++) {
         let loggedClimb = document.createElement('div')
+        loggedClimb.setAttribute('class', 'favDivs')
         loggedClimb.innerHTML = `
         <p>${data[i].fName} ${data[i].lName}</p><br>
         <p>${data[i].climbName}</p><br>
