@@ -110,13 +110,12 @@ function printToBrowser(data) {
             <p id="cardLocation">${data[i].location}</p>
         </div>
         <div id="innerCardImage">
-            <img src="${data[i].forumImage}" alt='user image here' style='max-width:100%;max-height:100%;'>
+            <img id='cardImage' src="${data[i].forumImage}" alt='user image here' style='max-width:100%;max-height:100%;'>
         </div>
         <div id="innerCardBottom">
             <p id="cardInfo">Info: ${data[i].info}</p>
         </div>
-        `       
-        // <p id="cardImage">${data[i].forumImage}</p>
+        `
         let deleteBtn = document.createElement('button')
         deleteBtn.id='delete' + data[i].id
         deleteBtn.setAttribute('backendId', data[i].id)
