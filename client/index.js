@@ -92,7 +92,7 @@ function submitEdits(e) {
         document.getElementById('forumImage').value = ''
         document.getElementById('info').value = ''
         
-        document.getElementById('climbSubmit').classList.add('hidden') // hides data entry form
+        // document.getElementById('climbSubmit').classList.add('hidden') // hides data entry form
     })
 }
 
@@ -115,21 +115,26 @@ function printToBrowser(data) {
         <div id="innerCardBottom">
             <p id="cardInfo">Info: ${data[i].info}</p>
         </div>
+        <div class="innerCardBtns" id="innerCardBtns${data[i].id}">
+        </div>
         `
-        let deleteBtn = document.createElement('button')
-        deleteBtn.id='delete' + data[i].id
-        deleteBtn.setAttribute('backendId', data[i].id)
-        deleteBtn.innerHTML = 'Delete'
-        deleteBtn.addEventListener('click', deleteClimb)
-        loggedClimb.appendChild(deleteBtn)
+        document.getElementById('climbsContainer').appendChild(loggedClimb)
 
         let editBtn = document.createElement('button')
         editBtn.id='edit' + data[i].id
         editBtn.setAttribute('backendIdToEdit', data[i].id) // backendId="data[i].id"
         editBtn.innerHTML = 'Edit'
         editBtn.addEventListener('click', editClimb)
-        loggedClimb.appendChild(editBtn)
-        document.getElementById('climbsContainer').appendChild(loggedClimb)
+        // loggedClimb.appendChild(editBtn)
+        document.getElementById(`innerCardBtns${data[i].id}`).appendChild(editBtn)
+
+        let deleteBtn = document.createElement('button')
+        deleteBtn.id='delete' + data[i].id
+        deleteBtn.setAttribute('backendId', data[i].id)
+        deleteBtn.innerHTML = 'Delete'
+        deleteBtn.addEventListener('click', deleteClimb)
+        document.getElementById(`innerCardBtns${data[i].id}`).appendChild(deleteBtn)
+        // loggedClimb.appendChild(deleteBtn)
     }
 }
 
