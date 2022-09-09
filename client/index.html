@@ -8,44 +8,66 @@
     <link rel="stylesheet" href="/css">
 </head>
 <body>
-    <div id="climbSubmit">
-        <label for="fName">First name:</label><br>
-        <input type="text" id="fName" name="fName"><br>
-        <label for="lName">Last name:</label><br>
-        <input type="text" id="lName" name="lName"><br>
-        <label for="climbName">Climb name:</label><br>
-        <input type="text" id="climbName" name="climbName"><br>
-        <label for="grade">Difficulty:</label><br>
-        <select name="grade" id="grade">
-            <option value="V0">V0</option>
-            <option value="V1">V1</option>
-            <option value="V2">V2</option>
-            <option value="V3">V3</option>
-            <option value="V4">V4</option>
-            <option value="V5">V5</option>
-            <option value="V6">V6</option>
-            <option value="V7">V7</option>
-            <option value="V8">V8</option>
-            <option value="V9">V9</option>
-            <option value="V10">V10</option>
-            <option value="V11">V11</option>
-            <option value="V12">V12</option>
-            <option value="V13">V13</option>
-            <option value="V14">V14</option>
-            <option value="V15">V15</option>
-            <option value="V16">V16</option>
-        </select><br>
-        <label for="location">Location:</label><br>
-        <input type="text" id="location" name="location"><br>
-        <label for="forumImage">Picture of climb:</label><br>
-        <input type="text" id="forumImage" name="forumImage" placeholder="Image URL"><br>
-        <label for="info">Comments/Info:</label><br>
-        <input type="text" id="info" name="info"><br>
-        <button id="submitClimbBtn">Submit</button><br>
-        <button id="submitEdit" hidden>Submit Changes</button>
+    <header>
+        <div id="headerName">
+            <h2>UTAH CLIMBING</h2>
+        </div>
+        <div id="headerPaths">
+            <h5 class="links">Bouldering</h5>
+            <h5 class="links">Sport Climbing</h5>
+            <h5 class="links">Indoor Climbing</h5>
+            <h5 class="links">Shops & Gear</h5>
+            <h5 class="links">Guides</h5>
+            <h5 class="links">Forum</h5>
+        </div>
+    </header>
+    <div id="mainBody">
+        <div id="inputWelcome">
+            <h1>Welcome to Utah Climbing!</h1>
+            <h3>Please share your favorite climb in Utah</h3>
+        </div>
+        <div id="climbSubmit" class="climbSubmitForm">
+            <label for="fName">First name:</label>
+            <input type="text" id="fName" name="fName" class="cardInput"><br>
+            <label for="lName">Last name:</label>
+            <input type="text" id="lName" name="lName" class="cardInput"><br>
+            <label for="climbName">Climb name:</label>
+            <input type="text" id="climbName" name="climbName" class="cardInput"><br>
+            <label for="grade">Difficulty:</label>
+            <select name="grade" id="grade" class="cardInput">
+                <option value="V0">V0</option>
+                <option value="V1">V1</option>
+                <option value="V2">V2</option>
+                <option value="V3">V3</option>
+                <option value="V4">V4</option>
+                <option value="V5">V5</option>
+                <option value="V6">V6</option>
+                <option value="V7">V7</option>
+                <option value="V8">V8</option>
+                <option value="V9">V9</option>
+                <option value="V10">V10</option>
+                <option value="V11">V11</option>
+                <option value="V12">V12</option>
+                <option value="V13">V13</option>
+                <option value="V14">V14</option>
+                <option value="V15">V15</option>
+                <option value="V16">V16</option>
+            </select><br>
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" class="cardInput"><br>
+            <label for="forumImage">Picture of climb:</label>
+            <!-- <img src="" id="forumImage" name="forumImage" placeholder="Image URL" class="cardInput"><br> -->
+            <input type="text" id="forumImage" name="forumImage" placeholder="Image URL" class="cardInput"><br>
+            <label for="info">Comments/Info:</label>
+            <input type="text" id="info" name="info" class="cardInput"><br>
+            <button id="submitClimbBtn">Submit</button>
+            <button id="submitEdit" class="hidden">Submit Changes</button>
+        </div>
+        <div id="climbsContainer">
+
+        </div>
     </div>
-    <div id="climbsContainer">
-    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/js"></script>
 </body>

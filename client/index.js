@@ -1,17 +1,6 @@
 const climbSubmitBtn = document.getElementById('submitClimbBtn')
 const submitChangesBtn = document.getElementById('submitEdit')
 
-// why isn't this working?
-// let climbObj = {
-//     fName: document.getElementById('fName').value,
-//     lName: document.getElementById('lName').value,
-//     climbName: document.getElementById('climbName').value,
-//     grade: document.getElementById('grade').value,
-//     location: document.getElementById('location').value,
-//     forumImage: document.getElementById('forumImage').value,
-//     info: document.getElementById('info').value
-// }
-
 function createFavClimb(e) {
     e.preventDefault()
     document.getElementById('climbsContainer').innerHTML = ''
@@ -37,7 +26,7 @@ function createFavClimb(e) {
     document.getElementById('forumImage').value = ''
     document.getElementById('info').value = ''
 
-    document.getElementById('climbSubmit').hidden = true // hide data entry form
+    // document.getElementById('climbSubmit').classList.add('hidden') // hides data entry form
 }
 
 function deleteClimb(e) {
@@ -49,18 +38,18 @@ function deleteClimb(e) {
         data = res.data
         printToBrowser(data)
     })
-    document.getElementById('climbSubmit').hidden = false // show data entry form
+    document.getElementById('climbSubmit').classList.remove('hidden') // shows data entry form
+    document.getElementById('submitClimbBtn').classList.remove('hidden') // shows submit btn
+    document.getElementById('submitEdit').classList.add('hidden') // hides submit changes btn
 }
 
 function editClimb(e) {
     e.preventDefault()
-    // document.getElementById('climbsContainer').innerHTML = ''
     let id = e.target.getAttribute('backendIdToEdit')
     axios.get(`/editClimb/?id=${id}`)
     .then(res => {
         data = res.data
-        // printToBrowser(data)
-        document.getElementById('climbSubmit').hidden = false // show data entry form
+        document.getElementById('climbSubmit').classList.remove('hidden') // shows data entry form
 
         document.getElementById('fName').value = `${data.fName}`
         document.getElementById('lName').value = `${data.lName}`
@@ -69,9 +58,11 @@ function editClimb(e) {
         document.getElementById('location').value = `${data.location}`
         document.getElementById('forumImage').value = `${data.forumImage}`
         document.getElementById('info').value = `${data.info}`
-        document.getElementById('submitClimbBtn').hidden = true // hide submit btn
-        document.getElementById('submitEdit').hidden = false // show submit changes btn
-        document.getElementById(`edit${id}`).hidden = true // hide edit button
+
+        document.getElementById('submitClimbBtn').classList.add('hidden') // hides submit btn
+        document.getElementById('submitEdit').classList.remove('hidden') // shows submit changes btn
+        document.getElementById(`edit${id}`).classList.add('hidden') // hides edit btn
+
         document.getElementById('submitEdit').setAttribute('current-id', id)
     })
 }
@@ -101,7 +92,7 @@ function submitEdits(e) {
         document.getElementById('forumImage').value = ''
         document.getElementById('info').value = ''
         
-        document.getElementById('climbSubmit').hidden = true // hides data entry form
+        document.getElementById('climbSubmit').classList.add('hidden') // hides data entry form
     })
 }
 
@@ -110,15 +101,22 @@ function printToBrowser(data) {
         let loggedClimb = document.createElement('div')
         loggedClimb.setAttribute('class', 'favDivs')
         loggedClimb.innerHTML = `
-        <p>${data[i].fName} ${data[i].lName}</p><br>
-        <p>${data[i].climbName}</p><br>
-        <p>${data[i].grade}</p><br>
-        <p>${data[i].location}</p><br>
-        <p>${data[i].forumImage}</p><br>
-        <p>Info: ${data[i].info}</p>
-        `
-        // <button onclick="deleteClimb(event)" id="delete${data[i].id}" backendId="${data[i].id}">Delete</button>
-        
+        <div id="innerCardTop">
+            <p id="cardName">${data[i].fName} ${data[i].lName}</p>
+        </div>
+        <div id="innerCardMid">
+            <h3 id="cardClimbName">${data[i].climbName}</h3><br>
+            <p id="cardGrade">${data[i].grade}</p><br>
+            <p id="cardLocation">${data[i].location}</p>
+        </div>
+        <div id="innerCardImage">
+            <img src="${data[i].forumImage}" alt='user image here' style='max-width:100%;max-height:100%;'>
+        </div>
+        <div id="innerCardBottom">
+            <p id="cardInfo">Info: ${data[i].info}</p>
+        </div>
+        `       
+        // <p id="cardImage">${data[i].forumImage}</p>
         let deleteBtn = document.createElement('button')
         deleteBtn.id='delete' + data[i].id
         deleteBtn.setAttribute('backendId', data[i].id)
