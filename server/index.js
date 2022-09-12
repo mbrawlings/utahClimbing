@@ -9,9 +9,14 @@ const { PORT } = process.env
 app.use(express.json())
 app.use(cors())
 
-const { forum, jsFile, cssFile, forumPost, deleteClimb, editClimb, submitEdits } = require('./controller.js')
+const { forum, bouldering, sport, indoor, shops, guides, jsFile, cssFile, forumPost, deleteClimb, editClimb, submitEdits } = require('./controller.js')
 
 app.get('/forum', forum)
+app.get('/bouldering.html', bouldering)
+app.get('/sport.html', sport)
+app.get('/indoor.html', indoor)
+app.get('/shops.html', shops)
+app.get('/guides.html', guides)
 app.get('/js', jsFile)
 app.get('/css', cssFile)
 app.post('/forumPost', forumPost)

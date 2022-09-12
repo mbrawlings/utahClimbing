@@ -7,6 +7,26 @@ module.exports = {
     forum: (req, res) => {
         res.sendFile(path.join(__dirname, '../client/index.html'))
     },
+
+    bouldering: (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/bouldering.html'))
+    },
+
+    sport: (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/sport.html'))
+    },
+
+    indoor: (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/indoor.html'))
+    },
+
+    shops: (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/shops.html'))
+    },
+
+    guides: (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/guides.html'))
+    },
     
     jsFile: (req, res) => {
         res.sendFile(path.join(__dirname, '../client/index.js'))
@@ -18,6 +38,19 @@ module.exports = {
 
     forumPost: (req, res) => {
         let { fName, lName, climbName, grade, location, forumImage, info } = req.body
+        // if (fName === '') {
+        //     res.status(400).send(error)
+        // } else if (lName === '') {
+        //     res.status(400).send(error)
+        // } else if (climbName === '') {
+        //     res.status(400).send(error)
+        // } else if (location === '') {
+        //     res.status(400).send(error)
+        // } else if (forumImage === '') {
+        //     res.status(400).send(error)
+        // } else if (info === '') {
+        //     res.status(400).send(error)
+        // }
         let newFavClimb = {
             id: globalId,
             fName,

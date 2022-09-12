@@ -18,6 +18,9 @@ function createFavClimb(e) {
         data = res.data
         printToBrowser(data)
     })
+    // .catch(error () => {
+    //     alert('One or more of you')
+    // })
     document.getElementById('fName').value = ''
     document.getElementById('lName').value = ''
     document.getElementById('climbName').value = ''
