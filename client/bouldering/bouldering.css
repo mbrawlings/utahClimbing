@@ -1,3 +1,7 @@
+body {
+    background-color: #C5D1EB;
+}
+
 header {
     height: 60px;
     display: flex;
@@ -23,6 +27,26 @@ header {
     color: black;
 }
 
-body {
-    background-color: #C5D1EB;
+#mainBody {
+    display: flex;
+    flex-direction: column;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+}
+
+.imgDiv {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    height: 300px;
+    width: 300px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
 }
