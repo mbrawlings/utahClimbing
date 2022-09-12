@@ -1,3 +1,7 @@
+body {
+    background-color: #C5D1EB;
+}
+
 header {
     height: 60px;
     display: flex;
@@ -23,6 +27,12 @@ header {
     color: black;
 }
 
-body {
-    background-color: #C5D1EB;
+#mainBody {
+    display: flex;
+    flex-direction: column;
+}
+
+#title {
+    display: flex;
+    justify-content: center;
 }

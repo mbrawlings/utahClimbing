@@ -11,7 +11,7 @@ app.use(cors())
 
 const { forum, bouldering, boulderingCss, sport, sportCss, indoor, indoorCss, shops, shopsCss, guides, guidesCss, jsFile, cssFile, forumPost, deleteClimb, editClimb, submitEdits } = require('./controller.js')
 
-app.get('/forum', forum)
+app.get('/index.html', forum)
 app.get('/bouldering.html', bouldering)
 app.get('/bouldering.css', boulderingCss)
 app.get('/sport.html', sport)
