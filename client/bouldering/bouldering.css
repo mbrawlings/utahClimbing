@@ -1,0 +1,28 @@
+header {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #246eb9;
+    border-radius: 10px;
+}
+
+#headerName {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+#headerPaths {
+    display: flex;
+    align-items: center;
+}
+
+.links {
+    margin: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    background-color: #C5D1EB;
+}

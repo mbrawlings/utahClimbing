@@ -9,23 +9,43 @@ module.exports = {
     },
 
     bouldering: (req, res) => {
-        res.sendFile(path.join(__dirname, '../client/bouldering.html'))
+        res.sendFile(path.join(__dirname, '../client/bouldering/bouldering.html'))
+    },
+
+    boulderingCss: (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/bouldering/bouldering.css'))
     },
 
     sport: (req, res) => {
-        res.sendFile(path.join(__dirname, '../client/sport.html'))
+        res.sendFile(path.join(__dirname, '../client/sport/sport.html'))
+    },
+
+    sportCss: (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/sport/sport.css'))
     },
 
     indoor: (req, res) => {
-        res.sendFile(path.join(__dirname, '../client/indoor.html'))
+        res.sendFile(path.join(__dirname, '../client/indoor/indoor.html'))
+    },
+
+    indoorCss: (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/indoor/indoor.css'))
     },
 
     shops: (req, res) => {
-        res.sendFile(path.join(__dirname, '../client/shops.html'))
+        res.sendFile(path.join(__dirname, '../client/shops/shops.html'))
+    },
+
+    shopsCss: (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/shops/shops.css'))
     },
 
     guides: (req, res) => {
-        res.sendFile(path.join(__dirname, '../client/guides.html'))
+        res.sendFile(path.join(__dirname, '../client/guides/guides.html'))
+    },
+
+    guidesCss: (req, res) => {
+        res.sendFile(path.join(__dirname, '../client/guides/guides.css'))
     },
     
     jsFile: (req, res) => {
