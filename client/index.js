@@ -13,23 +13,60 @@ function createFavClimb(e) {
         forumImage: document.getElementById('forumImage').value,
         info: document.getElementById('info').value
     }
-    axios.post('/forumPost', climbObj)
-    .then(res => {
-        data = res.data
-        printToBrowser(data)
-    })
-    // .catch(error () => {
-    //     alert('One or more of you')
-    // })
-    document.getElementById('fName').value = ''
-    document.getElementById('lName').value = ''
-    document.getElementById('climbName').value = ''
-    document.getElementById('grade').value = 'V0'
-    document.getElementById('location').value = ''
-    document.getElementById('forumImage').value = ''
-    document.getElementById('info').value = ''
+    if (checkInputs(climbObj)) {
+        axios.post('/forumPost', climbObj)
+        .then(res => {
+            data = res.data
+            printToBrowser(data)
+        })
+        // .catch(error () => {
+        //     alert('One or more of you')
+        // })
+        document.getElementById('fName').value = ''
+        document.getElementById('lName').value = ''
+        document.getElementById('climbName').value = ''
+        document.getElementById('grade').value = 'V0'
+        document.getElementById('location').value = ''
+        document.getElementById('forumImage').value = ''
+        document.getElementById('info').value = ''
+    
+        // document.getElementById('climbSubmit').classList.add('hidden') // hides data entry form
+    }
 
-    // document.getElementById('climbSubmit').classList.add('hidden') // hides data entry form
+}
+
+function checkInputs(climbObj) {
+    let { fName, lName, climbName, location, forumImage, info } = climbObj
+    let message = `Your favorite climb is still missing:`
+    let response = true
+    if (fName === '') {
+        message += `\na first name`
+        response = false
+    }
+    if (lName === '') {
+        message += `\na last name`
+        response = false
+    }
+    if (climbName === '') {
+        message += `\na climb name`
+        response = false
+    }
+    if (location === '') {
+        message += `\na location`
+        response = false
+    }
+    if (forumImage === '') {
+        message += `\na picture`
+        response = false
+    }
+    if (info === '') {
+        message += `\nsome info`
+        response = false
+    }
+    if (response === false) {
+        alert(message)
+    }
+    return response
 }
 
 function deleteClimb(e) {

@@ -58,19 +58,7 @@ module.exports = {
 
     forumPost: (req, res) => {
         let { fName, lName, climbName, grade, location, forumImage, info } = req.body
-        // if (fName === '') {
-        //     res.status(400).send(error)
-        // } else if (lName === '') {
-        //     res.status(400).send(error)
-        // } else if (climbName === '') {
-        //     res.status(400).send(error)
-        // } else if (location === '') {
-        //     res.status(400).send(error)
-        // } else if (forumImage === '') {
-        //     res.status(400).send(error)
-        // } else if (info === '') {
-        //     res.status(400).send(error)
-        // }
+
         let newFavClimb = {
             id: globalId,
             fName,

@@ -28,13 +28,13 @@
         </div>
         <div id="climbSubmit" class="climbSubmitForm">
             <label for="fName">First name:</label>
-            <input type="text" id="fName" name="fName" class="cardInput"><br>
+            <input type="text" id="fName" name="fName" class="cardInput" required><br>
             <label for="lName">Last name:</label>
-            <input type="text" id="lName" name="lName" class="cardInput"><br>
+            <input type="text" id="lName" name="lName" class="cardInput" required><br>
             <label for="climbName">Climb name:</label>
-            <input type="text" id="climbName" name="climbName" class="cardInput"><br>
+            <input type="text" id="climbName" name="climbName" class="cardInput" required><br>
             <label for="grade">Difficulty:</label>
-            <select name="grade" id="grade" class="cardInput">
+            <select name="grade" id="grade" class="cardInput" required>
                 <option value="V0">V0</option>
                 <option value="V1">V1</option>
                 <option value="V2">V2</option>
@@ -54,11 +54,11 @@
                 <option value="V16">V16</option>
             </select><br>
             <label for="location">Location:</label>
-            <input type="text" id="location" name="location" class="cardInput"><br>
+            <input type="text" id="location" name="location" class="cardInput" required><br>
             <label for="forumImage">Picture of climb:</label>
-            <input type="text" id="forumImage" name="forumImage" placeholder="Image URL" class="cardInput"><br>
+            <input type="text" id="forumImage" name="forumImage" placeholder="Image URL" class="cardInput" required><br>
             <label for="info">Comments/Info:</label>
-            <input type="text" id="info" name="info" class="cardInput"><br>
+            <input type="text" id="info" name="info" class="cardInput" required><br>
             <button id="submitClimbBtn">Submit</button>
             <button id="submitEdit" class="hidden">Submit Changes</button>
         </div>
