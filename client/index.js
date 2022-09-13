@@ -152,7 +152,7 @@ function printToBrowser(data) {
             <p id="cardName">${data[i].first_name} ${data[i].last_name}</p>
         </div>
         <div id="innerCardMid">
-            <h3 id="cardClimbName">${data[i].climb_name}</h3><br>
+            <h2 id="cardClimbName">${data[i].climb_name}</h2><br>
             <p id="cardGrade">${data[i].grade}</p><br>
             <p id="cardLocation">${data[i].location}</p>
         </div>

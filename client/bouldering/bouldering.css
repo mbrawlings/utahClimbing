@@ -39,6 +39,7 @@ header {
 
 .picks {
     display: flex;
+    /* flex-wrap: wrap; */
     /* border-style: solid;
     border-width: 1px;
     border-color: black; */
@@ -58,6 +59,7 @@ header {
 
 .description {
     display: flex;
+    height: 280px;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
@@ -68,5 +70,9 @@ img {
     height: 100%;
     width: 100%;
     object-fit: contain;
+}
+
+.imgTooBig {
+    border-radius: 15px;
 }
 

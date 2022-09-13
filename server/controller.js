@@ -37,12 +37,6 @@ module.exports = {
     indoorCss: (req, res) => {
         res.sendFile(path.join(__dirname, '../client/indoor/indoor.css'))
     },
-    shops: (req, res) => {
-        res.sendFile(path.join(__dirname, '../client/shops/shops.html'))
-    },
-    shopsCss: (req, res) => {
-        res.sendFile(path.join(__dirname, '../client/shops/shops.css'))
-    },
     guides: (req, res) => {
         res.sendFile(path.join(__dirname, '../client/guides/guides.html'))
     },
