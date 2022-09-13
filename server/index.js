@@ -9,7 +9,7 @@ const { PORT } = process.env
 app.use(express.json())
 app.use(cors())
 
-const { forum, bouldering, boulderingCss, sport, sportCss, indoor, indoorCss, shops, shopsCss, guides, guidesCss, jsFile, cssFile, forumPost, deleteClimb, editClimb, submitEdits } = require('./controller.js')
+const { forum, bouldering, boulderingCss, sport, sportCss, indoor, indoorCss, shops, shopsCss, guides, guidesCss, jsFile, cssFile, forumPost, getClimbs, deleteClimb, editClimb, submitEdits } = require('./controller.js')
 
 app.get('/index.html', forum)
 app.get('/bouldering.html', bouldering)
@@ -25,6 +25,7 @@ app.get('/guides.css', guidesCss)
 app.get('/js', jsFile)
 app.get('/css', cssFile)
 app.post('/forumPost', forumPost)
+app.get('/getClimbs', getClimbs)
 app.delete('/deleteClimb/:id', deleteClimb)
 app.get('/editClimb', editClimb)
 app.put('/submitEdits/:id', submitEdits)

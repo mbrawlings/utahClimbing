@@ -17,7 +17,7 @@ function createFavClimb(e) {
         axios.post('/forumPost', climbObj)
         .then(res => {
             data = res.data
-            printToBrowser(data)
+            console.log(data)
         })
         document.getElementById('fName').value = ''
         document.getElementById('lName').value = ''
@@ -29,7 +29,16 @@ function createFavClimb(e) {
     
         // document.getElementById('climbSubmit').classList.add('hidden') // hides data entry form
     }
+    getClimbs(e)
+}
 
+function getClimbs(e) {
+    e.preventDefault()
+    axios.get('/getClimbs')
+    .then(res => {
+        data = res.data
+        printToBrowser(data)
+    })
 }
 
 function checkInputs(climbObj) {
@@ -78,23 +87,24 @@ function deleteClimb(e) {
     document.getElementById('climbSubmit').classList.remove('hidden') // shows data entry form
     document.getElementById('submitClimbBtn').classList.remove('hidden') // shows submit btn
     document.getElementById('submitEdit').classList.add('hidden') // hides submit changes btn
+    getClimbs(e)
 }
 
 function editClimb(e) {
     e.preventDefault()
     let id = e.target.getAttribute('backendIdToEdit')
-    axios.get(`/editClimb/?id=${id}`)
+    axios.get(`/editClimb/?id= ${id}`)
     .then(res => {
         data = res.data
         document.getElementById('climbSubmit').classList.remove('hidden') // shows data entry form
 
-        document.getElementById('fName').value = `${data.fName}`
-        document.getElementById('lName').value = `${data.lName}`
-        document.getElementById('climbName').value = `${data.climbName}`
-        document.getElementById('grade').value = `${data.grade}`
-        document.getElementById('location').value = `${data.location}`
-        document.getElementById('forumImage').value = `${data.forumImage}`
-        document.getElementById('info').value = `${data.info}`
+        document.getElementById('fName').value = `${data[0].first_name}`
+        document.getElementById('lName').value = `${data[0].last_name}`
+        document.getElementById('climbName').value = `${data[0].climb_name}`
+        document.getElementById('grade').value = `${data[0].grade}`
+        document.getElementById('location').value = `${data[0].location}`
+        document.getElementById('forumImage').value = `${data[0].image}`
+        document.getElementById('info').value = `${data[0].info}`
 
         document.getElementById('submitClimbBtn').classList.add('hidden') // hides submit btn
         document.getElementById('submitEdit').classList.remove('hidden') // shows submit changes btn
@@ -120,7 +130,6 @@ function submitEdits(e) {
     axios.put(`/submitEdits/${id}`, climbObj)
     .then(res => {
         data = res.data
-        printToBrowser(data)
         document.getElementById('fName').value = ''
         document.getElementById('lName').value = ''
         document.getElementById('climbName').value = ''
@@ -131,6 +140,7 @@ function submitEdits(e) {
         
         // document.getElementById('climbSubmit').classList.add('hidden') // hides data entry form
     })
+    getClimbs(e)
 }
 
 function printToBrowser(data) {
@@ -139,15 +149,15 @@ function printToBrowser(data) {
         loggedClimb.setAttribute('class', 'favDivs')
         loggedClimb.innerHTML = `
         <div id="innerCardTop">
-            <p id="cardName">${data[i].fName} ${data[i].lName}</p>
+            <p id="cardName">${data[i].first_name} ${data[i].last_name}</p>
         </div>
         <div id="innerCardMid">
-            <h3 id="cardClimbName">${data[i].climbName}</h3><br>
+            <h3 id="cardClimbName">${data[i].climb_name}</h3><br>
             <p id="cardGrade">${data[i].grade}</p><br>
             <p id="cardLocation">${data[i].location}</p>
         </div>
         <div id="innerCardImage">
-            <img id='cardImage' src="${data[i].forumImage}" alt='user image here' style='max-width:100%;max-height:100%;'>
+            <img id='cardImage' src="${data[i].image}" alt='user image here' style='max-width:100%;max-height:100%;'>
         </div>
         <div id="innerCardBottom">
             <p id="cardInfo">Info: ${data[i].info}</p>
@@ -177,3 +187,4 @@ function printToBrowser(data) {
 
 climbSubmitBtn.addEventListener('click', createFavClimb)
 submitChangesBtn.addEventListener('click', submitEdits)
+window.addEventListener('load', getClimbs)
