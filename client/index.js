@@ -84,7 +84,7 @@ function deleteClimb(e) {
         data = res.data
         // printToBrowser(data)
     })
-    document.getElementById('climbSubmit').classList.remove('hidden') // shows data entry form
+    // document.getElementById('climbSubmit').classList.remove('hidden') // shows data entry form
     document.getElementById('submitClimbBtn').classList.remove('hidden') // shows submit btn
     document.getElementById('submitEdit').classList.add('hidden') // hides submit changes btn
 
@@ -105,7 +105,7 @@ function editClimb(e) {
     axios.get(`/editClimb/?id= ${id}`)
     .then(res => {
         data = res.data
-        document.getElementById('climbSubmit').classList.remove('hidden') // shows data entry form
+        // document.getElementById('climbSubmit').classList.remove('hidden') // shows data entry form
 
         document.getElementById('fName').value = `${data[0].first_name}`
         document.getElementById('lName').value = `${data[0].last_name}`
@@ -147,6 +147,9 @@ function submitEdits(e) {
         document.getElementById('location').value = ''
         document.getElementById('forumImage').value = ''
         document.getElementById('info').value = ''
+
+        document.getElementById('submitClimbBtn').classList.remove('hidden') // shows submit btn
+        document.getElementById('submitEdit').classList.add('hidden') // hides submit changes btn
         
         // document.getElementById('climbSubmit').classList.add('hidden') // hides data entry form
     })
