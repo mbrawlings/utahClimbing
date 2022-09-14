@@ -37,18 +37,28 @@ header {
     justify-content: center;
 }
 
+ol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .picks {
     display: flex;
-    /* flex-wrap: wrap; */
-    /* border-style: solid;
-    border-width: 1px;
-    border-color: black; */
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #246eb9;
+    width: 1000px;
 }
 
 .imgDiv {
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+    border: 1px solid black;
     background-color: black;
     border-radius: 15px;
     height: 300px;

@@ -36,3 +36,107 @@ header {
     display: flex;
     justify-content: center;
 }
+
+#upperContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.columns {
+    display: flex;
+    width: 500px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 5px solid black;
+    margin-left: 15px;
+    margin-right: 15px;
+    border-radius: 15px;
+}
+
+.mpPic {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.gitPic {
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.descDiv {
+    display: flex;
+    height: 150px;
+    align-items: center;
+    padding: 10px;
+
+}
+
+.bullets {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 175px;
+    align-items: flex-start;
+    border-top: 1px solid black;
+}
+
+p {
+    margin: 10px;
+    
+}
+
+#bottomContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid black;
+    margin: 30px;
+    border-radius: 15px;
+}
+
+#rowTitle {
+    display: flex;
+    justify-content: center;
+}
+
+#guideContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.picAndLink {
+    height: 150px;
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+.guideImage {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    background-color: white;
+}
+
