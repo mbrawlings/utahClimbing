@@ -17,7 +17,7 @@ function createFavClimb(e) {
         axios.post('/forumPost', climbObj)
         .then(res => {
             data = res.data
-            console.log(data)
+            // console.log(data)
         })
         document.getElementById('fName').value = ''
         document.getElementById('lName').value = ''
@@ -82,11 +82,20 @@ function deleteClimb(e) {
     axios.delete(`/deleteClimb/${id}`)
     .then(res => {
         data = res.data
-        printToBrowser(data)
+        // printToBrowser(data)
     })
     document.getElementById('climbSubmit').classList.remove('hidden') // shows data entry form
     document.getElementById('submitClimbBtn').classList.remove('hidden') // shows submit btn
     document.getElementById('submitEdit').classList.add('hidden') // hides submit changes btn
+
+    document.getElementById('fName').value = ''
+    document.getElementById('lName').value = ''
+    document.getElementById('climbName').value = ''
+    document.getElementById('grade').value = 'V0'
+    document.getElementById('location').value = ''
+    document.getElementById('forumImage').value = ''
+    document.getElementById('info').value = ''
+
     getClimbs(e)
 }
 
@@ -112,6 +121,7 @@ function editClimb(e) {
 
         document.getElementById('submitEdit').setAttribute('current-id', id)
     })
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
 }
 
 function submitEdits(e) {

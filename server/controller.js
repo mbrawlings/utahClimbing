@@ -58,19 +58,6 @@ module.exports = {
         `)
         .then(res.status(200))
         .catch(err => console.log('error creating fav climb', err))
-        // let newFavClimb = {
-        //     id: globalId,
-        //     fName,
-        //     lName,
-        //     climbName,
-        //     grade,
-        //     location,
-        //     forumImage,
-        //     info
-        // }
-        // favClimbs.push(newFavClimb)
-        // globalId++
-        // res.status(200).send(favClimbs)
     },
 
     getClimbs: (req, res) => {
@@ -87,12 +74,6 @@ module.exports = {
         DELETE FROM user_climbs 
         WHERE id = ${id}
         `)
-        // for (let i = 0; i < favClimbs.length; i++) {
-        //     if (+id === +favClimbs[i].id) {
-        //         favClimbs.splice(i,1)
-        //     }
-        // }
-        // res.status(200).send(favClimbs)
         .then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => console.log('error deleting fav climb', err))
     },
@@ -103,11 +84,6 @@ module.exports = {
         SELECT * FROM user_climbs
         WHERE id = ${id}
         `)
-        // for (let i = 0; i < favClimbs.length; i++) {
-        //     if (+id === +favClimbs[i].id) {
-        //         res.status(200).send(favClimbs[i])
-        //     }
-        // }
         .then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => console.log('error deleting fav climb', err))
     },
@@ -128,17 +104,5 @@ module.exports = {
         `)
         .then(dbRes => res.status(200).send(dbRes[0]))
         .catch(err => console.log('error deleting fav climb', err))
-        // for (let i = 0; i < favClimbs.length; i++) {
-        //     if (+id === +favClimbs[i].id) {
-        //         favClimbs[i].fName = fName
-        //         favClimbs[i].lName = lName
-        //         favClimbs[i].climbName = climbName
-        //         favClimbs[i].grade = grade
-        //         favClimbs[i].location = location
-        //         favClimbs[i].forumImage = forumImage
-        //         favClimbs[i].info = info
-        //     }
-        // }
-        // res.status(200).send(favClimbs)
     }
 }
