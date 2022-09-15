@@ -1,16 +1,8 @@
-/* 
-C1: 246eb9 - blue
-C2: C5D1EB - light blue
-C3: 1F2F16 - dark green
-C4: A98743 - gold brown
-C5: 8A7968 - light brown
-*/
-
 header {
     height: 60px;
     display: flex;
     justify-content: space-between;
-    background-color: #246eb9;
+    background-color: #2b7fd3;
     border-radius: 10px;
 }
 

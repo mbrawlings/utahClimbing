@@ -17,7 +17,6 @@ function createFavClimb(e) {
         axios.post('/forumPost', climbObj)
         .then(res => {
             data = res.data
-            // console.log(data)
         })
         document.getElementById('fName').value = ''
         document.getElementById('lName').value = ''
@@ -26,8 +25,6 @@ function createFavClimb(e) {
         document.getElementById('location').value = ''
         document.getElementById('forumImage').value = ''
         document.getElementById('info').value = ''
-    
-        // document.getElementById('climbSubmit').classList.add('hidden') // hides data entry form
     }
     getClimbs(e)
 }
@@ -82,9 +79,7 @@ function deleteClimb(e) {
     axios.delete(`/deleteClimb/${id}`)
     .then(res => {
         data = res.data
-        // printToBrowser(data)
     })
-    // document.getElementById('climbSubmit').classList.remove('hidden') // shows data entry form
     document.getElementById('submitClimbBtn').classList.remove('hidden') // shows submit btn
     document.getElementById('submitEdit').classList.add('hidden') // hides submit changes btn
 
@@ -105,8 +100,6 @@ function editClimb(e) {
     axios.get(`/editClimb/?id= ${id}`)
     .then(res => {
         data = res.data
-        // document.getElementById('climbSubmit').classList.remove('hidden') // shows data entry form
-
         document.getElementById('fName').value = `${data[0].first_name}`
         document.getElementById('lName').value = `${data[0].last_name}`
         document.getElementById('climbName').value = `${data[0].climb_name}`
@@ -115,9 +108,9 @@ function editClimb(e) {
         document.getElementById('forumImage').value = `${data[0].image}`
         document.getElementById('info').value = `${data[0].info}`
 
-        document.getElementById('submitClimbBtn').classList.add('hidden') // hides submit btn
-        document.getElementById('submitEdit').classList.remove('hidden') // shows submit changes btn
-        document.getElementById(`edit${id}`).classList.add('hidden') // hides edit btn
+        document.getElementById('submitClimbBtn').classList.add('hidden') 
+        document.getElementById('submitEdit').classList.remove('hidden') 
+        document.getElementById(`edit${id}`).classList.add('hidden') 
 
         document.getElementById('submitEdit').setAttribute('current-id', id)
     })
@@ -148,10 +141,8 @@ function submitEdits(e) {
         document.getElementById('forumImage').value = ''
         document.getElementById('info').value = ''
 
-        document.getElementById('submitClimbBtn').classList.remove('hidden') // shows submit btn
-        document.getElementById('submitEdit').classList.add('hidden') // hides submit changes btn
-        
-        // document.getElementById('climbSubmit').classList.add('hidden') // hides data entry form
+        document.getElementById('submitClimbBtn').classList.remove('hidden') 
+        document.getElementById('submitEdit').classList.add('hidden') 
     })
     getClimbs(e)
 }
@@ -182,10 +173,9 @@ function printToBrowser(data) {
 
         let editBtn = document.createElement('button')
         editBtn.id='edit' + data[i].id
-        editBtn.setAttribute('backendIdToEdit', data[i].id) // backendId="data[i].id"
+        editBtn.setAttribute('backendIdToEdit', data[i].id) 
         editBtn.innerHTML = 'Edit'
         editBtn.addEventListener('click', editClimb)
-        // loggedClimb.appendChild(editBtn)
         document.getElementById(`innerCardBtns${data[i].id}`).appendChild(editBtn)
 
         let deleteBtn = document.createElement('button')
@@ -194,7 +184,6 @@ function printToBrowser(data) {
         deleteBtn.innerHTML = 'Delete'
         deleteBtn.addEventListener('click', deleteClimb)
         document.getElementById(`innerCardBtns${data[i].id}`).appendChild(deleteBtn)
-        // loggedClimb.appendChild(deleteBtn)
     }
 }
 
